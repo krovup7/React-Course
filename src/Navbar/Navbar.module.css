@@ -1,0 +1,17 @@
+.nav {
+    grid-area: n;
+    background: linear-gradient(to bottom, #e0eafa, #ffffff);
+    padding: 20px;
+}
+.nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+.nav ul a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+.item a.activeLink {
+    color: gold;
+}

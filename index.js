@@ -1,8 +1,11 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import {ProductCard} from "./src/ProductCard";
+import App from "./src/App";
+import {BrowserRouter} from "react-router-dom";
 
 ReactDom.render(
-    <ProductCard/>,
+    <BrowserRouter>
+    <App/>,
+    </BrowserRouter>,
     document.getElementById('root')
 )
