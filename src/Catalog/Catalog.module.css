@@ -1,25 +1,25 @@
 .Main {
-    display: flex;
+  display: flex;
 }
 .Catalog {
-    flex: 1;
+  flex: 1;
 }
 .Catalog ul li {
-    list-style-type: none
+  list-style-type: none;
 }
 .Catalog ul li a {
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
 }
 .Basket {
-    flex: 1;
-    margin-right: 40px;
-    margin-top: 5px;
+  flex: 1;
+  margin-right: 40px;
+  margin-top: 5px;
 }
-.Product{
-    margin-bottom: 20px;
+.Product {
+  margin-bottom: 20px;
 }
 .Catalog ul li a:hover {
-    color: aquamarine;
+  color: aquamarine;
 }
