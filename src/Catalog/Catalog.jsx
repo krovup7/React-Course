@@ -3,13 +3,13 @@ import { Link, NavLink } from 'react-router-dom';
 import style from './Catalog.module.css';
 import UAContext from '../../context';
 
-export const Catalog = ({ Products }) => (
+export const Catalog = ({ products }) => (
   <UAContext.Consumer>
-    {(context) => (
+    {({items, addItem}) => (
       <div className={style.Main}>
         <div className={style.Catalog}>
           <ul>
-            {Products.map((product) => (
+            {products.map((product) => (
               <li key={product.id} className={style.Product}>
                 <div>
                   <img src={product.imageUrl} alt={'Product'} width={'80px'} />
@@ -19,7 +19,7 @@ export const Catalog = ({ Products }) => (
                 </div>
                 <button
                   onClick={() => {
-                    context.addItem(product);
+                    addItem(product);
                   }}
                 >
                   В корзину
@@ -38,7 +38,7 @@ export const Catalog = ({ Products }) => (
                 height={'50px'}
               />
             </NavLink>
-            <span> {context.items.length}</span>
+            <span> {items.length}</span>
           </div>
         </div>
       </div>

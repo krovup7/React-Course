@@ -14,8 +14,8 @@ export const ProductCard = (props) => {
       {(context) => (
         <div className={style.Main}>
           <div key={product.id} className={style.Card}>
-            <Image src={product.imageUrl} width={'300px'} height={'250px'} alt={'Product'} />
-            <TextBox str={product.title} />
+            <Image src={product.imageUrl} width={300} height={250} alt={'Product'} />
+            <TextBox>{product.title}</TextBox>
             <Price price={product.price} />
             <button
               onClick={() => {

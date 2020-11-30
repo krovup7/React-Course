@@ -34,9 +34,9 @@ class App extends React.Component {
           <div className="app-wrapper-content">
             <Navbar />
             <Switch>
-              <Route exact path={'/'} component={CatalogPage} />
-              <Route exact path={'/ProductCard/:id?'} component={ProductCard} />
-              <Route exact path={'/Basket'} component={BasketPage} />
+              <Route exact path='/' component={CatalogPage} />
+              <Route exact path='/ProductCard/:id?' component={ProductCard} />
+              <Route exact path='/Basket' component={BasketPage} />
               <Route component={NotFound} />
             </Switch>
           </div>
