@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
 import { CatalogPage } from './Catalog/CatalogPage';
-import { ProductCard } from './ProductCard/ProductCard';
 import Navbar from './Navbar/Navbar';
 import UaContext from './../context';
 import { NotFound } from './NotFound/NotFound';
 import { BasketPage } from './Basket/BasketPage';
+import  ProductCard  from "./ProductCard/ProductCard";
 
 class App extends React.Component {
   constructor(props) {
