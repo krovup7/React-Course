@@ -6,3 +6,19 @@
 .Title span {
   font-size: 30px;
 }
+.detalePhotos ul li img {
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+}
+.detalePhotos ul li {
+  display: inline;
+}
+.mainPicture {
+  margin-left: 50px;
+  width: 500px;
+  height: 500px;
+}
+.selectedPicture {
+  border: red 2px solid;
+}

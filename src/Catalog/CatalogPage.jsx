@@ -1,40 +1,47 @@
 import React from 'react';
 import { Catalog } from './Catalog';
-import request from 'superagent';
+import { connect } from 'react-redux';
+import { getData } from '../../redux/actions/ItemsAction';
+import { addProduct } from '../../redux/actions/BasketAction';
 
-const accessToken='OCQnKviM0RAnrue62I44iElV2NcINmDsHN-y-8tDqW8'
-
-export class CatalogPage extends React.Component {
+class CatalogPage extends React.Component {
   constructor(props) {
     super(props);
     this.drop = this.drop.bind(this);
-    this.state={items:[]
-    }
+    this.state = { items: [] };
   }
+
   componentDidMount() {
-    request
-      .get('https://cdn.contentful.com/spaces/1a9so1kp6ial/environments/master/entries')
-      .query({'content_type':'product'})
-      .set('Authorization', `Bearer ${accessToken}`)
-      .then(({ body:{items} })=> {
-        this.setState({items})
-      })
+    this.props.getData();
   }
   allowDrop(ev) {
     ev.preventDefault();
   }
   drag(ev, item) {
-    let j = JSON.stringify(item);
+    const j = JSON.stringify(item);
     ev.dataTransfer.setData('text', j);
   }
   drop(ev) {
     ev.preventDefault();
-    let item = JSON.parse(ev.dataTransfer.getData('text'));
+    const item = JSON.parse(ev.dataTransfer.getData('text'));
     this.props.addItem(item);
   }
   render() {
     return (
-      <Catalog products={this.state.items} drag={this.drag} allowDrop={this.allowDrop} drop={this.drop} />
+      <Catalog
+        products={this.props.items}
+        drag={this.drag}
+        allowDrop={this.allowDrop}
+        drop={this.drop}
+        addProduct={this.props.addProduct}
+        basket={this.props.basket}
+      />
     );
   }
 }
+const mapStateToProps = (state) => ({
+  items: state.items.items,
+  basket: state.basket.basket,
+});
+
+export default connect(mapStateToProps, { getData, addProduct })(CatalogPage);
